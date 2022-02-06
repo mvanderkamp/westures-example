@@ -5,12 +5,13 @@
   "author": "Michael van der Kamp <michael.vanderkamp@usask.ca>",
   "license": "ISC",
   "main": "dist/sample.js",
+  "source": "sample.js",
   "targets": {
     "main": {
       "context": "browser",
       "includeNodeModules": true,
       "isLibrary": false,
-      "outputFormat": "global",
+      "outputFormat": "commonjs",
       "publicUrl": "./",
       "sourceMap": true
     }
@@ -20,17 +21,17 @@
     "not dead"
   ],
   "scripts": {
-    "build": "parcel build sample.js",
+    "build": "PARCEL_WORKER_BACKEND=process parcel build",
     "postinstall": "rm -rf ./.parcel-cache && node ./postinstall.js",
     "start": "npx http-server"
   },
   "dependencies": {
-    "westures": "^1.0.0-alpha.4"
+    "parcel": "^2.2.1",
+    "westures": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.7.0",
-    "http-server": "^0.12.3",
-    "parcel": "^2.0.0-nightly.385"
+    "eslint": "^7.8.1",
+    "http-server": "^14.1.0"
   },
   "repository": {
     "type": "git",
