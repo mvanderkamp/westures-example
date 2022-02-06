@@ -201,7 +201,7 @@ class Interactable {
 
 /* ========================================================================== */
 
-const NUM_COLOURS = 12;
+const NUM_COLOURS = 13;
 const INTERVAL = Math.floor(360 / NUM_COLOURS);
 const PALETTE = [];
 
@@ -238,14 +238,21 @@ new Interactable(
   .addSwipe()
   .addSwivel({ enableKeys: ['ctrlKey'] })
   .addPull({ enableKeys: ['ctrlKey'] });
-new Interactable('DOUBLE TAP', nextColour()).addTap({
+new Interactable('QUICK DOUBLE TAP', nextColour()).addTap({
   numTaps: 2,
 });
-new Interactable('FIVE TAPS', nextColour()).addTap({
-  maxDelay: 1000,
-  numTaps:  5,
+new Interactable('FIVE QUICK TAPS', nextColour()).addTap({
+  maxDelay:  1000,
+  maxRetain: 1000,
+  numTaps:   5,
 });
 new Interactable('SLOW TAP', nextColour()).addTap({
   minDelay: 300,
   maxDelay: 1000,
+});
+new Interactable('TWO SLOW TAPS', nextColour()).addTap({
+  minDelay:  300,
+  maxDelay:  1000,
+  maxRetain: 2000,
+  numTaps:   2,
 });
