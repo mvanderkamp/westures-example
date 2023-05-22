@@ -4,38 +4,13 @@
   "description": "Simple static example page of the Westures library in action",
   "author": "Michael van der Kamp <michael.vanderkamp@usask.ca>",
   "license": "ISC",
-  "main": "dist/sample.js",
-  "source": "sample.js",
-  "targets": {
-    "main": {
-      "context": "browser",
-      "includeNodeModules": true,
-      "isLibrary": false,
-      "outputFormat": "commonjs",
-      "publicUrl": "./",
-      "sourceMap": true
-    }
-  },
-  "browserslist": [
-    "> 0.2%",
-    "not dead"
-  ],
-  "scripts": {
-    "build": "PARCEL_WORKER_BACKEND=process parcel build",
-    "postinstall": "rm -rf ./.parcel-cache && node ./postinstall.js",
-    "start": "npx http-server"
-  },
-  "dependencies": {
-    "parcel": "^2.2.1",
-    "westures": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.8.1",
-    "http-server": "^14.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mvanderkamp/westures-example.git"
+  },
+  "homepage": "https://github.com/mvanderkamp/westures-example#readme",
+  "bugs": {
+    "url": "https://github.com/mvanderkamp/westures-example/issues"
   },
   "keywords": [
     "westures",
@@ -44,8 +19,29 @@
     "library",
     "multitouch"
   ],
-  "bugs": {
-    "url": "https://github.com/mvanderkamp/westures-example/issues"
+  "scripts": {
+    "build": "parcel build",
+    "build:debug": "parcel build --no-optimize",
+    "start": "http-server ."
   },
-  "homepage": "https://github.com/mvanderkamp/westures-example#readme"
+  "dependencies": {
+    "westures": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "http-server": "^14.1.1",
+    "parcel": "^2.8.3"
+  },
+  "targets": {
+    "default": {
+      "context": "browser",
+      "source": "sample.js",
+      "distDir": "dist",
+      "includeNodeModules": true,
+      "isLibrary": false,
+      "outputFormat": "global",
+      "publicUrl": "./",
+      "sourceMap": true
+    }
+  }
 }
